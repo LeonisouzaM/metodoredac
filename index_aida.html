@@ -11,6 +11,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   
+  <!-- UTM Capture Script -->
+  <script>
+    (function () {
+      // Captura UTMs da URL
+      const params = new URLSearchParams(window.location.search);
+
+      const utms = {
+        utm_source: params.get("utm_source") || "",
+        utm_medium: params.get("utm_medium") || "",
+        utm_campaign: params.get("utm_campaign") || "",
+        utm_content: params.get("utm_content") || "",
+        utm_term: params.get("utm_term") || ""
+      };
+
+      // Salva no navegador
+      localStorage.setItem("utms", JSON.stringify(utms));
+
+      console.log("UTMs capturadas:", utms);
+    })();
+  </script>
+  
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
